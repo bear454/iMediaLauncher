@@ -1,9 +1,8 @@
 <ul class="rounded" >
 <% @folders.each {|e| -%>
-  <li class="arrow"><%=link_to e, e -%></li>
+  <li class="arrow"><%=link_to e, "/#{@subpath + '/' rescue ''}#{e}" -%></li>
 <% } -%>
 <% @files.each {|e| -%>
-  <li class="forward"><%=link_to e, '/play/' + e -%></li>
+  <li class="forward"><%=link_to e, "/play/#{@subpath + '/' rescue ''}#{e}" -%></li>
 <% } %>
 </ul>
-

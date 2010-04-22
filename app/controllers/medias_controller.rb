@@ -1,15 +1,9 @@
 class MediasController < ApplicationController
   MEDIA_EXTS = %w(.ogg .oga .ogv .mp3 .mp4 .m4a .m4v .aac .wma .wmv .flv)
-
-  def index
-    @title = "iMediaLaunchr"
-    base_folder = 
-    collect_stuff_in Dir.open(BASE_FOLDER)
-  end
   
-  def dive
-    @title = params[:folder].last
-    set_back_to params[:folder]
+  def index
+    @title = params[:folder].try(:last) || 'iMediaLaunchr'
+    set_back_to params[:folder] if params[:folder]
     collect_stuff_in Dir.open("#{BASE_FOLDER}/#{@subpath}")
   end
 
