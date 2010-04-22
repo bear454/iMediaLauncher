@@ -32,8 +32,8 @@ class MediasController < ApplicationController
     end
     @subpath = params[:file].join('/')
     spawn(:method => :thread) {
-      `vlc --fullscreen --video-on-top --no-video-title-show --play-and-exit --quiet \"#{BASE_FOLDER}/#{subpath}\"`
-      #`vlc --play-and-exit --quiet \"#{BASE_FOLDER}/#{@subpath}\"`
+      #`vlc --fullscreen --video-on-top --no-video-title-show --play-and-exit --quiet \"#{BASE_FOLDER}/#{subpath}\"`
+      `vlc --play-and-exit --quiet \"#{BASE_FOLDER}/#{@subpath}\"`
     }
   end
 end
